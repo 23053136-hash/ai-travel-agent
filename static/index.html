@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite AI Travel Concierge</title>
+    <meta name="description" content="AI-powered travel planning — flights, trains, hotels, itinerary, real booking links.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="app">
+    <!-- Left Panel: Branding + Memory Tracker -->
+    <aside class="sidebar">
+        <div class="brand">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary);"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <div>
+                <h1>AuraTravel AI</h1>
+                <p>Elite Concierge</p>
+            </div>
+        </div>
+
+        <div class="memory-panel">
+            <h3>Travel Profile <span class="badge" id="status-badge">Gathering Info</span></h3>
+            <div class="memory-grid" id="memory-grid">
+                <div class="memory-item"><span class="label">📍 From</span><span class="value" id="m-origin">—</span></div>
+                <div class="memory-item"><span class="label">🏁 To</span><span class="value" id="m-dest">—</span></div>
+                <div class="memory-item"><span class="label">📅 Date</span><span class="value" id="m-date">—</span></div>
+                <div class="memory-item"><span class="label">⏳ Days</span><span class="value" id="m-days">—</span></div>
+                <div class="memory-item"><span class="label">💰 Budget</span><span class="value" id="m-budget">—</span></div>
+                <div class="memory-item"><span class="label">👥 Travelers</span><span class="value" id="m-travelers">—</span></div>
+                <div class="memory-item"><span class="label">🧳 Trip Type</span><span class="value" id="m-type">—</span></div>
+            </div>
+            <div class="readiness">
+                <span>Plan Readiness</span>
+                <div class="progress-bar"><div id="readiness-fill" style="width:0%"></div></div>
+                <span id="readiness-pct">0%</span>
+            </div>
+        </div>
+
+        <button id="reset-btn" class="reset-btn">Start New Trip</button>
+    </aside>
+
+    <!-- Right Panel: Chat -->
+    <main class="chat-panel">
+        <header class="chat-header">
+            <div class="agent-info">
+                <div class="avatar-circle">AI</div>
+                <div>
+                    <strong>Elite Travel Agent</strong>
+                    <span class="online">● Online</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="chat-body" id="chat-body">
+            <div class="msg-row bot-row">
+                <div class="avatar-sm">AI</div>
+                <div class="bubble bot-bubble">
+                    Welcome! I'm your personal AI Travel Concierge 👋<br>
+                    Tell me where you'd like to go, and I'll plan your entire trip — flights, trains, hotels, and itinerary!<br><br>
+                    <em>Just type something like: "I want to go to Goa from Delhi"</em>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <form id="chat-form">
+                <button type="button" id="voice-btn" title="Voice Input (STT)">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                </button>
+                <input id="user-input" type="text" placeholder="Speak or type your destination..." autocomplete="off">
+                <button type="submit" id="send-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Plan Page (Hidden by default) -->
+    <main class="plan-page" id="plan-page" style="display: none; flex-direction: column; overflow: hidden; height: 100%; background: var(--chat-bg);">
+        <header class="chat-header" style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="agent-info">
+                <div class="avatar-circle">🌟</div>
+                <div>
+                    <strong>Your Elite Travel Plan</strong>
+                    <span class="online">Everything is ready</span>
+                </div>
+            </div>
+            <button id="close-plan-btn" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.4rem 1rem; border-radius: 8px; cursor: pointer;">← Back to Chat</button>
+        </header>
+        <div class="plan-body" id="plan-body" style="flex: 1; overflow-y: auto; padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Plan content injected here -->
+        </div>
+    </main>
+</div>
+
+<script src="/script.js"></script>
+</body>
+</html>

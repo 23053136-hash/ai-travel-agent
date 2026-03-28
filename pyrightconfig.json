@@ -1,0 +1,11 @@
+{
+  "pythonVersion": "3.13",
+  "venvPath": ".",
+  "venv": ".venv",
+  "typeCheckingMode": "basic",
+  "reportMissingImports": false,
+  "reportMissingModuleSource": false,
+  "reportOptionalMemberAccess": false,
+  "reportOptionalCall": false,
+  "reportIndexIssue": false
+}
